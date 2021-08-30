@@ -11,5 +11,5 @@ $user_id = $_SESSION['user_id'];
 // echo $user_id;
 
 $cart = new Cart;
-$cart->createCart($cart_id,$product_id,$quantity,$user_id);
+$cart->createCart($product_id,$quantity,$user_id);
 ?>

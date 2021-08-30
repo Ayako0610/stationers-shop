@@ -88,13 +88,13 @@ $cart_total = $cart->getTotalPrice($_SESSION['user_id']);
             <h4 class="text-center">$<?=$cart_total ?></h4>
           </div>
           <div class="text-center my-2 mx-3">
-            <form action="../actions/order.php?user_id=<?= $cart_details['user_id']?>" method="post">
+          
             <!-- <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>"> -->
             <!-- <button type="submit" class="btn btn-primary d-block my-2" style="width: 200px;">Checkout</button> -->
-            <a href="../views/order.php" class="btn btn-primary d-block mt-2">Checkout</a>
+            <a href="../actions/checkout.php" class="btn btn-primary d-block mt-2">Checkout</a>
 
             <a href="../views/dashboard.php" class="btn btn-outline-warning d-block mt-2">Keep  purchasing</a>
-           </form>
+          
           </div>
         </div>
      </div>

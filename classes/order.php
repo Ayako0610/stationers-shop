@@ -2,22 +2,21 @@
 require_once "database.php";
 
 class Order extends Database{
-  public function createOrder($order_id, $user_id,$total_price,$checkout_date){
-    // $sql = "SELECT SUM(total_price) FROM cart WHERE user_id = $user_id ";
-    // $total = $product_price * $quantity;
-    $total_price = $order->getorder($_SESSION['user_id']);
-    $sql = "INSERT INTO `orders`(user_id, total_price, checkout_time_date) VALUES $user_id,$cart_total,$checkout_date WHERE user_id = $user_id";
+  public function createOrder($user_id,$total_quantity,$total_price,$checkout_date){
+    
+    $sql = "INSERT INTO `orders`(`user_id`, total_price, total_quantity,checkout_time_date) VALUES ($user_id,$total_price,$total_quantity,'$checkout_date')";
 
     if($this->conn->query($sql)){
-      header("location: ../views/order.php");
+      $order_id = $this->conn->insert_id;
+      header("location: ../views/order.php?order_id=$order_id");
       exit;
     }else{
       die("Error send to data: " . $this->conn->error);
     }
   }
 
-  public function getOrder($user_id){
-    $sql = "SELECT order_id, user_id, total_price, checkout_time_date FROM orders INNER JOIN cart ON  orders.user_id = cart.user_id WHERE user_id = $user_id";
+  public function getOrder($order_id){
+    $sql = "SELECT first_name, last_name, `address`, total_price, total_quantity, checkout_time_date FROM orders INNER JOIN users ON orders.user_id = users.user_id WHERE order_id = $order_id";
 
     if($result = $this->conn->query($sql)){
       return $result->fetch_assoc();

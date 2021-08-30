@@ -2,7 +2,7 @@
 require_once "database.php";
 
 class Cart extends Database{
-  public function createCart($cart_id,$product_id,$quantity,$user_id){
+  public function createCart($product_id,$quantity,$user_id){
     // $prod_price = thisconn getProdPrice($prod id)
     // total = prod price * $quan
     

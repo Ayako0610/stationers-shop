@@ -2,12 +2,9 @@
 session_start();
 include "../classes/order.php";
 
-$cart = new Cart;
-$total_price = $cart->getTotalPrice($_SESSION['user_id']);
-$total_quantity = $cart->getCart($user_id);
 $order = new Order;
-$order_list = $order->createOrder($order_id,$user_id,$total_price,$checkout_date);
-$order_detals = getOrder($user_id);
+$order_details = $order->getOrder($_GET['order_id']);
+// print_r($order_details);
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +18,14 @@ $order_detals = getOrder($user_id);
   <script src="https://kit.fontawesome.com/1f22affdad.js" crossorigin="anonymous"></script>
   <title>Order</title>
   <style>
+  body{
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    /* background-color:#4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    height: 100%; */
+  }
   .card{
-    height: 400px;
+    /* height: 600px; */
     color : #00bfff;
     position: relative;
     background: #fff0cd;
@@ -41,7 +44,6 @@ $order_detals = getOrder($user_id);
     border-color: #ffdb88 #fff #ffdb88;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
   }
-  
   </style>
 </head>
 <body>
@@ -52,14 +54,16 @@ $order_detals = getOrder($user_id);
         <h3 class="display-3 text-center">Thanks for your order</h3>
         </div>
         <div class="card-body font-italic text-left">
-          <form action="../classes/action/order.php" method="post">
-          <input type="hidden" name="user_id" value="user_id<?= $order_detals['user_id'] ?>">
           <label for="username"></label>
-          <h5>Ordernumber: NO.<?= $order_detals['order_number'] ?></h5>
-          <h5>Oder Date: <?= $order_detals['order_date'] ?></h5>
-          <h5>Total Price: $<?= $order_detals['total_price'] ?></h5>
+          <h5>Order Number: NO.<?= $_GET['order_id'] ?></h5>
+          <h5>Oder Date: <?= $order_details['checkout_time_date'] ?></h5>
+          <h5>Full Nme : <?= $order_details['first_name'] ?> <?= $order_details['last_name'] ?></h5>
+          <h5>Total quantity: # <?= $order_details['total_quantity'] ?></h5>
+          <h5 class ="mb-3">Total Price: $<?= $order_details['total_price'] ?></h5>
           <!-- <h5>Summary :</h5> -->
-          </form>
+          <a href="../views/dashboard.php" class="btn btn-success d-block mt-2 mx-3
+          ">View more</a>
+
         </div>
       </div>
     </div>

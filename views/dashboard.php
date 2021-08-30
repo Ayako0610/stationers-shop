@@ -23,67 +23,71 @@ $count_cart = $cart->countCartProducts($_SESSION['user_id']);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/1f22affdad.js" crossorigin="anonymous"></script>
   <title>Dashbord</title>
+  <style>
+  body{
+    /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+    /* background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); */
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  }
+  .fa-shopping-cart{
+    font-size: 25px ;
+  }
+  h3{
+    position: relative;
+    background: #dfefff;
+    box-shadow: 0px 0px 0px 5px #dfefff;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+  }
+  h3:after{
+    position: absolute;
+    content: '';
+    left: -7px;
+    top: -7px;
+    border-width: 0 0 15px 15px;
+    border-style: solid;
+    border-color: #fff #fff #a8d4ff;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  }
+  .header{
+    opacity: 0.7;
+    height: 450px;
+    width: 100%;
+    background-image: url("../images/3.jpg");
+    background-position: top;
+    background-size: cover;
+  }
+  .card-img{
+    border-radius: 10px;
+    height: 100px;
+    max-width: 100%;
+  }
+  .input{
+    height: 10px;
+    width: 30px;
+  }
+  /* .button{
+    display: inline-block;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 8pt;
+    background: rgba(255, 102, 255, 0.72);
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.96);
+  } */
+  #cart_count{
+    text-align: center;
+    padding: 00.9rem 0.1rem 0.9rem;
+    border-radius: 3rem;
+  }
+  </style>
 </head>
-<style>
-.fa-shopping-cart{
-  font-size: 25px ;
-}
-h3{
-  position: relative;
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  color: #454545;
-}
-h3:after{
-  position: absolute;
-  content: '';
-  left: -7px;
-  top: -7px;
-  border-width: 0 0 15px 15px;
-  border-style: solid;
-  border-color: #fff #fff #a8d4ff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-}
-.header{
-  opacity: 0.7;
-  height: 450px;
-  width: 100%;
-  background-image: url("../images/3.jpg");
-  background-position: top;
-  background-size: cover;
-}
-.card-img{
-  border-radius: 10px;
-  height: 100px;
-  max-width: 100%;
-}
-.input{
-  height: 10px;
-  width: 30px;
-}
-/* .button{
-  display: inline-block;
-  border-radius: 10%;
-  text-align: center;
-  font-size: 8pt;
-  background: rgba(255, 102, 255, 0.72);
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.96);
-} */
-#cart_count{
-  text-align: center;
-  padding: 00.9rem 0.1rem 0.9rem;
-  border-radius: 3rem;
-}
-
-</style>
-
 <body>
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light"   style="background-color: #FFD5EC;">
   <a href="dashboard.php" class="navbar-brand">Stationer's Shop</a>
+  <a href="../views/contact.php">Contact Us</a>
   <div class="ml-auto">
     <form class="form-inline my-2 my-lg-0">
       <a class="nav-link" href="../views/cart.php">

@@ -9,6 +9,11 @@
   <script src="https://kit.fontawesome.com/1f22affdad.js" crossorigin="anonymous"></script>
   <title>Login</title>
   <style>
+  body{
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    /* height: 100%;
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+  }
   .card{
     height: 282px;
     /* color : #00bfff; */
@@ -29,21 +34,23 @@
     border-color: #ffdb88 #fff #ffdb88;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
   }
-  
+  .card-footer text-right border-0 bg-transparent{
+    background: #454545;
+  }
   </style>
 </head>
 <body>
 <div class="container my-5">
   <div class="row">
     <div class="col-6">
-      <div class="card my-5 ml-5 border-info">
+      <div class="card my-5 ml-5">
         <div class="card-body ">
           <h2 class="text-center display-5">Login</h2>
             <form action="../actions/login.php" method="post">
               <input type="text" name="username" placeholder="USERNAME" class="form-control my-2" required autofocus>
 
               <input type="password" name="password" placeholder="PASSWORD" class="form-control my-2" required>
-              <div class="card-footer text-right" style="#454545">
+              <div class="card-footer text-right border-0 bg-transparent">
                 <button type="submit" class="btn btn-outline-dark">Log in</button>
               </div>
             </form>       
